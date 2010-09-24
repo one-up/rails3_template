@@ -89,7 +89,7 @@ get "http://github.com/rails/jquery-ujs/raw/master/src/rails.js", "public/javasc
 get "http://code.jquery.com/jquery-1.4.2.min.js", "public/javascripts/jquery.js"
 gsub_file "config/application.rb", /(#\s*)(?=config\.action_view\.javascript_expansions\[:defaults\])/, ''
 
-get "http://github.com/one-up/rails3_template/raw/master/gitignore" ,".gitignore"
+get "http://github.com/one-up/rails3_template/raw/master/dot.gitignore" ,".gitignore"
 #get "http://github.com/one-up/rails3_template/raw/master/screen.scss", "app/stylesheets/screen.scss"
 #get "http://github.com/one-up/rails3_template/raw/master/application.html.haml", "app/views/layouts/application.html.haml"
 #get "http://github.com/one-up/rails3_template/raw/master/factory_girl.rb", "features/support/factory_girl.rb"
@@ -100,7 +100,7 @@ get "http://github.com/one-up/rails3_template/raw/master/gitignore" ,".gitignore
 #get "http://github.com/one-up/rails3_template/raw/master/overlay.png", "public/images/overlay.png"
 #get "http://github.com/one-up/rails3_template/raw/master/newrelic.yml", "config/newrelic.yml"
 #get "http://github.com/one-up/rails3_template/raw/master/hoptoad.rb", "config/initializers/hoptoad.rb"
-#get "http://github.com/one-up/rails3_template/raw/master/htaccess", "public/.htaccess"
+#get "http://github.com/one-up/rails3_template/raw/master/dot.htaccess", "public/.htaccess"
 #get "http://github.com/one-up/rails3_template/raw/master/asset_packages.yml", "config/asset_packages.yml"
 
 run 'capify .'
