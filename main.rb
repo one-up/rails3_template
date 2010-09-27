@@ -19,6 +19,7 @@ select_gem 'devise', '>=1.1.2'
 gem 'mysql2'
 
 gem 'will_paginate', '>=3.0.pre2'
+gem 'configatron'
 
 #gem "haml-rails", ">= 0.2"
 #gem 'inherited_resources', '>=1.1.2'
@@ -55,6 +56,7 @@ gem 'cucumber-rails', ">=0.3.2", :group => :cucumber
 run 'bundle install'
 
 plugin 'ouscaffold', :git => 'git://github.com/one-up/ouscaffold.git'
+plugin 'configatron-rails', :git => 'git://github.com/one-up/configatron-rails.git'
 #plugin 'asset_packager', :git => 'git://github.com/sbecker/asset_packager.git'
 
 
@@ -81,6 +83,8 @@ create_file 'README'
 
 generate 'rspec:install'
 generate 'devise:install' if @selects['devise']
+
+generate 'configatron_rails:install'
 
 generate 'ouscaffold:layout'
 generate 'ouscaffold:i18n'
