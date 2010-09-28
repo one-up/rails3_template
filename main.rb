@@ -2,7 +2,7 @@
 
 def select_gem(gemname, version = nil, options = {}) 
   @selects ||= {}
-  if yes?("Add #{gemname}? >")
+  if yes?("Add #{gemname}? [n]>")
     gem gemname, version, options
     @selects[gemname] = true
   end
@@ -12,6 +12,10 @@ end
 #### Gems
 
 puts
+
+tz = ask("What's your time_zone? [Tokyo]>")
+tz = 'Tokyo' if tz.blank?
+
 select_gem 'unicorn'
 select_gem 'thin'
 select_gem 'devise', '>=1.1.2'
@@ -72,12 +76,16 @@ remove_file '.gitignore'
 
 #### Generation
 
-application <<-CONFIG
-config.generators do |g|
-  g.test_framework :rspec, :fixture => true, :views => false
-  g.integration_tool :rspec, :fixture => true, :views => true
-end
+application <<CONFIG
+
+    config.generators do |g|
+      g.test_framework :rspec, :fixture => true, :views => false
+      g.integration_tool :rspec, :fixture => true, :views => true
+    end
+
+    config.time_zone = '#{tz}'
 CONFIG
+
 
 create_file 'README'
 
@@ -123,10 +131,9 @@ get "http://github.com/one-up/rails3_template/raw/master/deploy/staging.rb", "co
 
 #### Git
 
-if yes?('Git init, add and commit? >') 
+if yes?('Git init, add and commit? [n]>') 
   git :init
   git :add => '.'
   git :commit => "-a -m 'Initial commit'"
 end
-
 
